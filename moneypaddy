@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Break The Broke Cycle - Financial Accountability Coaching</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* GLOBAL RESET & BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --color-dark-slate: #0f172a;
+            --color-accent-green: #10b981;
+            --color-accent-dark-green: #059669;
+            --color-light-cream: #fffbeb; /* Warmer cream */
+            --color-light-grey: #f8fafc;
+            --color-text-body: #1e293b;
+            --color-text-secondary: #64748b;
+            --color-orange-accent: #f59e0b;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--color-text-body);
+            font-size: 1.125rem;
+            background: white;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        section {
+            padding: 120px 20px;
+        }
+        h1, h2, h3 {
+            font-weight: 900;
+            line-height: 1.2;
+        }
+        h1 {
+            font-size: 4rem;
+        }
+        h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        h3 {
+            font-size: 1.75rem;
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: var(--color-accent-green);
+            color: white;
+            padding: 20px 50px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 20px rgba(16,185,129,0.2);
+        }
+        .cta-button:hover {
+            background: var(--color-accent-dark-green);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(16,185,129,0.3);
+        }
+        .cta-button-secondary {
+            background: white;
+            color: var(--color-accent-green);
+            border: 2px solid var(--color-accent-green);
+            padding: 18px 40px;
+            font-size: 1.125rem;
+        }
+        .cta-button-secondary:hover {
+            background: var(--color-accent-green);
+            color: white;
+        }
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            text-align: center;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            opacity: 0.9;
+        }
+        /* PROBLEM SECTION */
+        .problem-section {
+            background: var(--color-light-cream);
+        }
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+        .problem-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-top: 6px solid var(--color-orange-accent);
+            transition: all 0.3s ease;
+        }
+        .problem-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        /* TRUTH SECTION */
+        .truth-section {
+            background: var(--color-light-grey);
+        }
+        .truth-box {
+            background: white;
+            padding: 60px;
+            border-radius: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-left: 10px solid var(--color-accent-green);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        .truth-box p {
+            font-size: 1.375rem;
+            margin-bottom: 30px;
+        }
+        .truth-box p:last-child {
+            margin-bottom: 0;
+        }
+        /* STATS SECTION */
+        .stats-section {
+            background: var(--color-dark-slate);
+            color: white;
+            text-align: center;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        .stat-card {
+            padding: 20px;
+        }
+        .stat-number {
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--color-accent-green);
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+        /* SOLUTION SECTION */
+        .solution-section {
+            background: white;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            border-left: 6px solid var(--color-accent-green);
+        }
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 30px;
+        }
+        /* PRICING SECTION */
+        .pricing-section {
+            background: var(--color-light-grey);
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            justify-items: center;
+        }
+        .pricing-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.4s ease;
+            width: 100%;
+            max-width: 400px;
+        }
+        .pricing-card.featured {
+            background: var(--color-dark-slate);
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+        .pricing-tier {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        .pricing-amount {
+            font-size: 3.5rem;
+            font-weight: 900;
+        }
+        .pricing-period {
+            font-size:: 1.25rem;
+            opacity: 0.8;
+            margin-bottom: 40px;
+        }
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 50px;
+        }
+        .pricing-features li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(226,232,240,0.5);
+            font-size: 1.125rem;
+        }
+        .pricing-features li:before {
+            content: "✓";
+            color: var(--color-accent-green);
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        .pricing-card.featured .pricing-features li:before {
+            content: "⭐";
+        }
+        .pricing-card.featured .pricing-amount,
+        .pricing-card.featured .pricing-tier {
+            color: var(--color-accent-green);
+        }
+        .pricing-footer-note {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 1.25rem;
+            color: var(--color-text-secondary);
+            font-style: italic;
+        }
+        /* FINAL CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--color-accent-green), var(--color-accent-dark-green));
+            color: white;
+            text-align: center;
+        }
+        .final-cta p {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.375rem;
+        }
+        .final-cta .urgency-note {
+            color: white;
+            margin-top: 40px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+        .final-cta .urgency-note::after {
+            content: "↓";
+            display: block;
+            font-size: 3rem;
+            line-height: 1;
+            margin-top: 10px;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        /* RESPONSIVE IMPROVEMENTS */
+        @media (max-width: 1024px) {
+            .pricing-card.featured {
+                transform: scale(1.05);
+            }
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 20px;
+            }
+            h1 {
+                font-size: 2.8rem;
+            }
+            h2 {
+                font-size: 2.4rem;
+            }
+            h3 {
+                font-size: 1.6rem;
+            }
+            .hero p {
+                font-size: 1.3rem;
+            }
+            .problem-grid,
+            .feature-grid,
+            .pricing-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .pricing-card.featured {
+                transform: none;
+            }
+            .stat-number {
+                font-size: 4rem;
+            }
+            .feature-card {
+                padding: 35px 25px;
+            }
+            .problem-card {
+                padding: 35px;
+            }
+            .truth-box {
+                padding: 40px;
+            }
+            .pricing-card {
+                padding: 35px 25px;
+            }
+            .pricing-amount {
+                font-size: 3rem;
+            }
+            .cta-button,
+            .cta-button-secondary {
+                padding: 16px 35px;
+                font-size: 1.1rem;
+                width: 100%;
+                max-width: 300px;
+            }
+            .final-cta .urgency-note::after {
+                font-size: 2.5rem;
+            }
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.4rem;
+            }
+            h2 {
+                font-size: 2.2rem;
+            }
+            section {
+                padding: 60px 15px;
+            }
+            .container {
+                padding: 0 15px;
+            }
+            .problem-card,
+            .feature-card,
+            .pricing-card {
+                padding: 30px 20px;
+            }
+            .truth-box {
+                padding: 30px;
+            }
+            .stat-number {
+                font-size: 3.5rem;
+            }
+            .feature-icon {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="container">
+            <h1>You're Making More Money Than Your Parents Ever Did.<br>So Why Are You Still Broke?</h1>
+            <p>Financial accountability coaching for Nigerian tech professionals, creators, and entrepreneurs who are tired of the paycheck-to-paycheck cycle.</p>
+            <a href="#contact" class="cta-button">Break The Cycle Now</a>
+        </div>
+    </section>
+
+    <section class="problem-section">
+        <div class="container">
+            <h2>Does This Sound Familiar?</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>💸 The Money Vanishes</h3>
+                    <p>You made ₦1M+ this month. By day 20, you're checking your balance wondering where it all went. Apps didn't help. Budgets didn't work. You're stuck in the same cycle.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>😰 The Family Pressure</h3>
+                    <p>Your family thinks you're rich now. The demands never stop. You want to help, but you're drowning. You can't say no without feeling like a bad son or daughter.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>🤐 The Silent Shame</h3>
+                    <p>Everyone thinks you're winning because they see the money coming in. But you know the truth—you're one bad month from broke, and you can't tell anyone.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>🔄 The Pattern Repeats</h3>
+                    <p>You watched your father struggle with money. You swore you'd be different. But here you are, making good money and still living the same cycle. When does it stop?</p>
+                </div>
+                <div class="problem-card">
+                    <h3>📱 The Apps Fail You</h3>
+                    <p>PiggyVest, Cowrywise, spreadsheets—you've tried them all. They help you save to spend, but they can't teach you to build actual wealth. They can't tell you "no."</p>
+                </div>
+                <div class="problem-card">
+                    <h3>🙏 Prayer Isn't A Strategy</h3>
+                    <p>You watched your parents pray about money their whole lives. Things still fell apart. You're doing the same thing—hoping God will fix it while making the same mistakes. Faith without a system is just hoping.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>📊 The New Complexities</h3>
+                    <p>Tax laws are coming. Real estate seems complicated. Long-term investing feels foreign. You don't even know what questions to ask, let alone where to start.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>💳 The Debt Trap</h3>
+                    <p>Carbon, FairMoney, Branch—you've borrowed to cover gaps. In tech, everyone owes everyone. The loans compound the problem, but you can't see a way out without more money coming in.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>🎯 "Just Save 100k"</h3>
+                    <p>People say it like it's easy. But that money is THERE. You see it. You need new clothes. The gym membership. That trip. Your future kids. How do you ignore all of that and "just save"? It's not that simple.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>✈️ The Japa Dream That Never Happens</h3>
+                    <p>You want to japa, relocate abroad, or further your studies—maybe a Master's or certification. You've been talking about it for years, but the money never seems to add up. Proof of funds feels impossible, school fees look unreachable, and the goal keeps slipping away.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="truth-section">
+        <div class="container">
+            <h2>The Truth Nobody Tells You</h2>
+            <div class="truth-box">
+                <p><strong>In Nigeria, we turn money management into a thing of prayer.</strong> You watched your parents pray and pray, but things kept falling apart. Now you're doing the same thing—asking God to fix it while making the same financial mistakes.</p>
+                <p><strong>Faith without a system is just hoping.</strong> God gave you the income. Now you need wisdom to manage it.</p>
+                <p><strong>We also have a taboo culture around money.</strong> We're taught that handling your own money is good, and needing help is shameful. So you suffer in silence while the cycle repeats.</p>
+                <p><strong>Remember when your dad seemed rich when you were a kid?</strong> He could afford school fees, holidays, and nice things. But gradually, he started struggling—inflation caught up, the land he bought stayed undeveloped, the building projects stalled, the farm withered away. It wasn't that he didn't want more; he tried to do it all on his own without a proper system or professional guidance.</p>
+                <p><strong>But here's what they don't tell you:</strong> Dangote has a full finance team and CFOs. Otedola has investment advisors and wealth managers. Adenuga has accountants and strategists running his empire. Even Tony Elumelu and Abdulsamad Rabiu surround themselves with expert teams managing every naira. Every truly wealthy Nigerian has a professional TEAM handling their money.</p>
+                <p><strong>The difference between staying wealthy and going broke isn't how much you make—it's having a SYSTEM.</strong></p>
+                <p>Apps can't give you accountability. Apps can't help you navigate family pressure. Apps can't teach you the difference between saving to spend and building generational wealth. Apps definitely can't help you with the new tax laws, real estate complexities, or getting out of loan app debt.</p>
+                <p><strong>The shame isn't in getting help. The shame is watching yourself repeat your father's mistakes when you know you could break the cycle.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <h2>Why This Works</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">84%</div>
+                    <div class="stat-label">of young professionals worry about financial security but don't know how to achieve it</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3-6</div>
+                    <div class="stat-label">months of emergency savings built within first 6 months of coaching (average)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2-3</div>
+                    <div class="stat-label">months to become completely debt-free for most clients with consistent action</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">400%+</div>
+                    <div class="stat-label">return on investment when you save ₦500k monthly while paying ₦100k for guidance</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solution-section">
+        <div class="container">
+            <h2>What You Get: A System That Actually Works</h2>
+            <p style="text-align: center; max-width: 900px; margin: 0 auto 60px; font-size: 1.375rem; color: var(--color-text-secondary);">This isn't budgeting advice. This is financial accountability designed for Nigerian reality.</p>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Money Flow Structure</h3>
+                    <p>We set up automatic allocations BEFORE you touch your money. Percentages for savings, family, living expenses, investments—all decided when your head is clear, not when emotions are high.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Spending Accountability</h3>
+                    <p>Want to make a big purchase? We review it together first. I'm not here to control you—I'm here to be the pause between impulse and action. The system that stops you from sabotaging yourself.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Family Boundary Support</h3>
+                    <p>Learn to help your family WITHOUT drowning. We create sustainable giving plans so you can be generous without going broke. You can comfortably say, "I'm sorry, my financial manager advised me I can't go beyond this amount right now." I become the "bad guy" so you don't have to be.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚖️</div>
+                    <h3>The REAL Savings System</h3>
+                    <p>Everyone says "just save 100k monthly" like it's simple. It's not. With ₦800k+, you CAN eat well, hit the gym, buy clothes, save for vacation AND build wealth—but only with a proper allocation system. We map it out so nothing feels like deprivation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3>Debt Exit Strategy</h3>
+                    <p>Carbon, FairMoney, Branch loans stacking up? In tech, everyone owes everyone. We create a clear path to zero—prioritizing debts, stopping the cycle, and building the buffer so you never need loan apps again.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📜</div>
+                    <h3>Tax & Legal Navigation</h3>
+                    <p>New tax laws are coming. Real estate seems complicated. We don't just tell you "figure it out"—we break down what you need to know, connect you with specialists when needed, and make sure you're compliant without overpaying.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👶</div>
+                    <h3>Future Planning</h3>
+                    <p>Your future kids. Your parents' retirement. Your own freedom. These aren't separate problems—they're all part of ONE financial plan. We help you see the big picture and build toward it systematically.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Investment Guidance</h3>
+                    <p>Treasury bills, mutual funds, dollar savings, real estate—we evaluate opportunities together. We go beyond the default "buy land in a bush and wait"—collaborating to find smarter, diversified options that actually grow your wealth in today's economy. You bring the options, I help you filter what makes sense for YOUR situation and timeline.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Regular Check-ins</h3>
+                    <p>Weekly or bi-weekly calls to review progress, adjust plans, and address challenges. Plus WhatsApp access for when you need quick guidance or accountability.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Financial Education</h3>
+                    <p>You'll learn WHY we're doing what we're doing. By clearly seeing how much you can realistically spare each month after smart allocation, you begin to understand exactly how much harder (or smarter) you need to work to fund the future you truly want. The goal is to build your financial intelligence while giving you the structure you need RIGHT NOW.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-section">
+        <div class="container">
+            <h2>Investment Options</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-tier">STARTER</div>
+                    <div class="pricing-amount">₦50k</div>
+                    <div class="pricing-period">per month</div>
+                    <ul class="pricing-features">
+                        <li>Basic budgeting & accountability</li>
+                        <li>Monthly check-in calls</li>
+                        <li>Savings structure setup</li>
+                        <li>WhatsApp support</li>
+                        <li>Emergency fund planning</li>
+                    </ul>
+                    <a href="#contact" class="cta-button cta-button-secondary">Get Started</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-tier">GROWTH</div>
+                    <div class="pricing-amount">₦80k</div>
+                    <div class="pricing-period">per month</div>
+                    <ul class="pricing-features">
+                        <li>Everything in Starter</li>
+                        <li>Bi-weekly accountability calls</li>
+                        <li>Investment planning & reviews</li>
+                        <li>Spending approval system</li>
+                        <li>Family boundary coaching</li>
+                        <li>Priority WhatsApp access</li>
+                    </ul>
+                    <a href="#contact" class="cta-button cta-button-secondary">Most Popular</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-tier">PREMIUM</div>
+                    <div class="pricing-amount">₦100k</div>
+                    <div class="pricing-period">per month</div>
+                    <ul class="pricing-features">
+                        <li>Everything in Growth</li>
+                        <li>Weekly access & support</li>
+                        <li>Tax planning coordination</li>
+                        <li>Business finance consulting</li>
+                        <li>Full accountability oversight</li>
+                        <li>Wealth building strategy</li>
+                    </ul>
+                    <a href="#contact" class="cta-button cta-button-secondary">Go Premium</a>
+                </div>
+            </div>
+            <p class="pricing-footer-note">
+                <em>*Alternative: 5-7% of money saved/grown each month</em>
+            </p>
+        </div>
+    </section>
+
+    <section class="final-cta" id="contact">
+        <div class="container">
+            <h2>Stop Repeating Your Father's Mistakes</h2>
+            <p>This is your shot to be the first in your family to actually BUILD wealth, not just earn and lose it.<br>But you can't do it alone with the same mindset that got everyone else here.</p>
+            <p style="font-size: 1.5rem; margin: 40px 0 50px; font-weight: 600;">Ready to break the broke cycle?</p>
+            <a href="https://wa.me/2348000000000?text=I'm%20interested%20in%20breaking%20the%20broke%20cycle" class="cta-button cta-button-secondary">Start With A Free Consultation</a>
+            <p class="urgency-note">Limited spots available. First 10 clients get 20% off first 3 months.</p>
+        </div>
+    </section>
+</body>
+</html>
